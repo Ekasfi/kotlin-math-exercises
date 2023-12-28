@@ -5,11 +5,20 @@ val random = Random
 
 
 fun main() {
-    println("Witaj, pora poćwiczyć matme! Wybierz rodzaj działań:")
+    println("Witaj, pora poćwiczyć matematykę! Wybierz rodzaj działań:")
     println("1. dodawanie 2. odejmowanie 3. mnożenie 4. dzielenie")
-    val odpowiedz: String? = readLine()
-    val numer: Int = odpowiedz?.toIntOrNull() ?: 0
 
+    var numer: Int
+
+    do {
+        val odpowiedz: String? = readLine()
+        numer = odpowiedz?.toIntOrNull() ?: 0
+
+        if (numer !in 1..4) {
+            println("Wybrano niepoprawną liczbę. Wybierz liczbę od 1 do 4.")
+        }
+    } while (numer !in 1..4)
+    
     when (numer) {
         1 -> dodawanie();
         2 -> odejmowanie();
